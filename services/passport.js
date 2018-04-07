@@ -21,7 +21,10 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: "/auth/google/callback"
+      callbackURL: "/auth/google/callback",
+      //this tells google that if the callback url goes through any type of proxy, to let it through
+      //otherwise we get an error (http/vs https)--see lesson 50 8min through
+      proxy: true
     },
     //callback function to create a new instance of User model
     (accessToken, refreshToken, profile, done) => {
