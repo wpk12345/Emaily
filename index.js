@@ -25,7 +25,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //here we use call the authroutes file with the app object
-//these two files return a function, they export a function so this this 'require' statement is going to turn to a
+//these two files return a function, they export a function so  this 'require' statement is going to turn to a
 //function which we immediatly call with the express app object
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
