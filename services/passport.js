@@ -27,23 +27,18 @@ passport.use(
       proxy: true
     },
     //callback function to create a new instance of User model
-    (accessToken, refreshToken, profile, done) => {
-      // console.log("access token", accessToken);
-      // console.log("refresh token", refreshToken);
-      // console.log("profile:", profile);
-
-      //query to see if a user already exists
-      User.findOne({ googleId: profile.id }).then(existingUser => {
-        if (existingUser) {
-          //we already have a record with the given profile ID
-          done(null, existingUser);
-        } else {
-          // we don't have a user record with this ID, make a new record
-          new User({ googleId: profile.id })
-            .save()
-            .then(user => done(null, user));
-        }
-      });
-    }
+    async (accessToken, refreshToken, profile, done) => {
+      const existingUser = await User.findOne({ googleId: profile.id });
+      if (existingUser) {
+        //we already have a record with the given profile ID
+        return done(null, existingUser);
+      } 
+      //don't need to put 'else' here because we put return in line 34
+      //if we just had 'done' then we would have to put 'else'
+        // we don't have a user record with this ID, make a new record
+        const user = await new User({ googleId: profile.id }).save();
+        done(null, user);  
+      }
+    
   )
 );
