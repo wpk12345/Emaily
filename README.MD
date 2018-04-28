@@ -26,6 +26,8 @@ Emaily will collect feedback from your users by asking questions through a surve
   - We tabulated feedback
   - User can see report of all survey responses
 
-  
+  ![Alt text](photo/flow.jpg?raw=true "Title")
+
+
 
 
