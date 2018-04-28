@@ -1,3 +1,5 @@
+//notice on the server side i am using common js modules.  at present node only has support for common js modules
+//on the client side however we will be using the "import (es2015) syntax" as it has support for es2015 modules ..see index.js on client side 
 const bodyParser = require("body-parser");
 const express = require("express");
 const mongoose = require("mongoose");
