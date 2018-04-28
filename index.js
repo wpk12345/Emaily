@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const keys = require("./config/keys");
+//not assigning the following 2 to anything so we don't need a variable.  we can just "require" them.
 require("./models/User");
 require("./services/passport");
 
@@ -27,7 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //here we use call the authroutes file with the app object
-//these two files return a function, they export a function so  this 'require' statement is going to turn to a
+//these two files return a function that we exported in authroutes and billing routes, they export a function so  this 'require' statement is going to turn to a
 //function which we immediatly call with the express app object
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
