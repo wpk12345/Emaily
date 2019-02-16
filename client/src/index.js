@@ -7,7 +7,7 @@ import { createStore, applyMiddleware } from "redux";
 
 import App from "./components/App";
 import reducers from "./reducers";
-
+//Test
 //when setting up createStore the first arg is all the reducers you are going to be using.  second arg is the initial state of the app
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
